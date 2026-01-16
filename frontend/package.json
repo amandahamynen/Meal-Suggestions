@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "ts-node": "ts-node"
+    "ts-node": "ts-node",
+    "tsc": "tsc",
+    "start": "node build/index.js"
   },
   "dependencies": {
     "react": "^19.2.0",
