@@ -7,27 +7,31 @@ export const collections: { meals?: mongoDB.Collection<Meal> } = {};
 export async function connectToDatabase() {
   dotenv.config();
 
-  if (!process.env.DB_CONN_STRING) {
-    throw new Error("DB_CONN_STRING is not defined in .env file");
+  if (!process.env.MONGO_URL) {
+    throw new Error(
+      "MONGO_URL is not defined in .env file / environment variables",
+    );
   }
   if (!process.env.DB_NAME) {
-    throw new Error("DB_NAME is not defined in .env file");
+    throw new Error(
+      "DB_NAME is not defined in .env file / environment variables",
+    );
   }
-  if (!process.env.MEALS_COLLECTION_NAME) {
-    throw new Error("MEALS_COLLECTION_NAME is not defined in .env file");
+  if (!process.env.COLLECTION_NAME) {
+    throw new Error(
+      "COLLECTION_NAME is not defined in .env file / environment variables",
+    );
   }
 
-  const client = new mongoDB.MongoClient(process.env.DB_CONN_STRING);
+  const client = new mongoDB.MongoClient(process.env.MONGO_URL);
 
   await client.connect();
 
+  console.log("Connected to MongoDB");
   const db = client.db(process.env.DB_NAME);
-
   await applySchemaValidation(db);
 
-  const mealsCollection = db.collection<Meal>(
-    process.env.MEALS_COLLECTION_NAME,
-  );
+  const mealsCollection = db.collection<Meal>(process.env.COLLECTION_NAME);
 
   collections.meals = mealsCollection;
 
@@ -54,15 +58,17 @@ async function applySchemaValidation(db: mongoDB.Db) {
 
   await db
     .command({
-      collMod: process.env.MEALS_COLLECTION_NAME,
+      collMod: process.env.COLLECTION_NAME,
       validator: jsonSchema,
     })
     .catch(async (error: mongoDB.MongoServerError) => {
       if (error.codeName === "NamespaceNotFound") {
-        if (!process.env.MEALS_COLLECTION_NAME) {
-          throw new Error("MEALS_COLLECTION_NAME is not defined in .env file");
+        if (!process.env.COLLECTION_NAME) {
+          throw new Error(
+            "COLLECTION_NAME is not defined in .env file / environment variables",
+          );
         }
-        await db.createCollection(process.env.MEALS_COLLECTION_NAME, {
+        await db.createCollection(process.env.COLLECTION_NAME, {
           validator: jsonSchema,
         });
       }
