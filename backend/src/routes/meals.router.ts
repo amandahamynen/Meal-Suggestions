@@ -68,9 +68,11 @@ mealsRouter.get("/:id", async (req: Request, res: Response) => {
       res.status(200).send(meal);
     }
   } catch (error) {
-    res
-      .status(404)
-      .send(`Unable to find matching document with id: ${req.params.id}`);
+    let errorMessage = "An error occurred while retrieving a meal.";
+    if (error instanceof Error) {
+      errorMessage = error.message;
+      res.status(500).send(errorMessage);
+    }
   }
 });
 
@@ -82,11 +84,13 @@ mealsRouter.post("/", async (req: Request, res: Response) => {
     }
     const newmeal = req.body;
     const result = await collections.meals.insertOne(newmeal);
-    result
-      ? res
-          .status(201)
-          .send(`Successfully created a new meal with id ${result.insertedId}`)
-      : res.status(500).send("Failed to create a new meal.");
+    if (result) {
+      res
+        .status(201)
+        .send(`Successfully created a new meal with id ${result.insertedId}`);
+    } else {
+      res.status(500).send("Failed to create a new meal.");
+    }
   } catch (error) {
     let errorMessage = "An error occurred while creating a new meal.";
     if (error instanceof Error) {
