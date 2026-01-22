@@ -23,33 +23,6 @@ mealsRouter.get("/", async (_req: Request, res: Response) => {
   }
 });
 
-mealsRouter.get("/random", async (_req: Request, res: Response) => {
-  try {
-    if (!collections.meals) {
-      res.status(500).send("Database not initialized");
-      return;
-    }
-    const count = await collections.meals.countDocuments();
-    const randomIndex = Math.floor(Math.random() * count);
-    const randomMeal = await collections.meals
-      .find()
-      .limit(1)
-      .skip(randomIndex)
-      .next();
-    if (randomMeal) {
-      res.status(200).send(randomMeal);
-    } else {
-      res.status(404).send("No meals found");
-    }
-  } catch (error) {
-    let errorMessage = "An error occurred while retrieving a random meal.";
-    if (error instanceof Error) {
-      errorMessage = error.message;
-      res.status(500).send(errorMessage);
-    }
-  }
-});
-
 mealsRouter.get("/:id", async (req: Request, res: Response) => {
   const id = req?.params?.id;
   try {
