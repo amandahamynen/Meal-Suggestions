@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig as testConfig } from "vitest/config";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,4 +13,11 @@ export default defineConfig({
       port: 5173,
     },
   },
-})
+});
+export const test = testConfig({
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./testSetup.ts",
+  },
+});

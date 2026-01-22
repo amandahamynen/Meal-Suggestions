@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "ts-node": "ts-node",
     "tsc": "tsc",
-    "start": "node build/index.js"
+    "start": "node build/index.js",
+    "test": "vitest run"
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -18,6 +19,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.23",
@@ -30,9 +33,11 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "jsdom": "^27.4.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.53.0",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vitest": "^4.0.17"
   }
 }
