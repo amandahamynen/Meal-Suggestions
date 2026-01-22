@@ -1,4 +1,4 @@
-.App {
+.MealSuggestion {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   background-color: #282c34;
 }
 
-.content {
+.MealSuggestion__Content {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -18,21 +18,21 @@
   flex-direction: column;
 }
 
-h1 {
+.MealSuggestion__Title {
   font-size: 96px;
   margin-bottom: 20px;
   text-align: center;
   color: #dbe3e5;
 }
 
-p {
+.MealSuggestion__Result {
   font-size: 32px;
   margin-bottom: 40px;
   text-align: center;
   color: #dbe3e5;
 }
 
-.generate-button {
+.MealSuggestion__Button {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #8068d1;
@@ -41,6 +41,7 @@ p {
   border-radius: 5px;
   cursor: pointer;
 }
-.generate-button:hover {
+
+.MealSuggestion__Button:hover {
   background-color: #6b57ad;
 }
