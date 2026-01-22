@@ -1,8 +1,8 @@
 import { Meal } from "../types/meal";
-import { getMealsUrl } from "../constants/api.constants";
+import { GET_MEALS_URL } from "../constants/api.constants";
 
 const getMeals = async () => {
-  const response = await fetch(getMealsUrl);
+  const response = await fetch(GET_MEALS_URL);
   if (!response.ok) {
     throw new Error("Failed to fetch meals");
   }
