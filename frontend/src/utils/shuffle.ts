@@ -1,4 +1,4 @@
-// Suffle an array using Fisher-Yates (Knuth) Algorithm
+// Shuffle an array using Fisher-Yates (Knuth) Algorithm
 const shuffle = <T>(array: T[]): T[] => {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {

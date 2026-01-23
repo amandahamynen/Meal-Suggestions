@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Meal } from "../types/meal";
 import mealService from "../services/meal.service";
-import shuffle from "../utils/suffle";
+import shuffle from "../utils/shuffle";
 
 function MealSuggestion() {
   const [meals, setMeals] = useState<Meal[]>([]);
