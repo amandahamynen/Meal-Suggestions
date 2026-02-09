@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
-import { mealsRouter } from "./routes/meals.router";
+import { createMealsRouter } from "./routes/meals.router";
 import { connectToDatabase } from "./services/database.service";
+import { collections } from "./services/database.service";
 
 const app = express();
 const PORT = 8080;
@@ -14,7 +15,7 @@ app.use(
 
 connectToDatabase()
   .then(() => {
-    app.use("/meals", mealsRouter);
+    app.use("/meals", createMealsRouter(collections.meals));
 
     app.listen(PORT, () => {
       console.log(`Server running on 0.0.0.0:${PORT}`);
