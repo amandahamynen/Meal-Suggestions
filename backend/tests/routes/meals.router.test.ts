@@ -6,6 +6,7 @@ import Meal from "../../src/models/meal";
 
 function createTestApp(mealsCollection?: Partial<Collection<Meal>>) {
   const app = express();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   app.use("/meals", createMealsRouter(mealsCollection as any));
   return app;
 }
