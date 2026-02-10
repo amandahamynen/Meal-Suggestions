@@ -19,7 +19,7 @@ git clone git@github.com:amandahamynen/Meal-Suggestions.git
 cd Meal-Suggestions
 ```
 
-Start containers:
+Start development containers:
 ```bash
 docker compose -f docker-compose.dev.yml up    
 ```
@@ -30,6 +30,28 @@ Access the app:
 
 You can stop containers from the active console with ``CTRL + C``
 
+## Running Robot tests
+
+Make sure you have Python (3.10+) installed and then run
+```bash
+pip install robotframework
+pip install robotframework-browser
+pip install robotframework-requests
+```
+
+After installing ```robotframework-browser```, initialize the Browser library
+```bash
+rfbrowser init
+```
+
+Start testing containers:
+```bash
+docker compose -f docker-compose.test.yml up
+```
+Run tests
+```bash
+robot --outputdir frontend/robot/results frontend/robot/tests
+```
 
 ## Cleanup
 
