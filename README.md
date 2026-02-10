@@ -2,7 +2,7 @@
 
 [![Deployment pipeline](https://github.com/amandahamynen/what-to-eat/actions/workflows/pipeline.yml/badge.svg)](https://github.com/amandahamynen/what-to-eat/actions/workflows/pipeline.yml)
 
-An app that suggests a random meal from a database to make choosing what to eat easier.
+An app that suggests random meals from a database to make choosing what to eat easier.
 
 ## Starting the application locally
 
@@ -34,9 +34,7 @@ You can stop containers from the active console with ``CTRL + C``
 
 Make sure you have Python (3.10+) installed and then run
 ```bash
-pip install robotframework
-pip install robotframework-browser
-pip install robotframework-requests
+pip install robotframework robotframework-browser robotframework-requests
 ```
 
 After installing ```robotframework-browser```, initialize the Browser library
