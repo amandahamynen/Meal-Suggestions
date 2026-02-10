@@ -30,6 +30,14 @@ function MealSuggestion() {
 
   return (
     <div className="MealSuggestion">
+      <div className="MealSuggestion__Header">
+        <a href="/meals" className="Header_Link" data-testid="meals-link">
+          Meals
+        </a>
+        <a href="/settings" className="Header_Link" data-testid="settings-link">
+          Settings
+        </a>
+      </div>
       <div className="MealSuggestion__Content">
         <h1
           className="MealSuggestion__Title"

@@ -8,8 +8,24 @@
   background-color: #282c34;
 }
 
+.MealSuggestion__Header {
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header_Link {
+  padding: 10px 25px;
+  text-decoration: none;
+  color: #dbe3e5;
+}
+
 .MealSuggestion__Content {
-  height: 100%;
+  height: calc(100% - 174px);
   padding: 0;
   margin: 0;
   display: flex;
