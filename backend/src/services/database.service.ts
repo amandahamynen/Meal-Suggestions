@@ -74,3 +74,10 @@ async function applySchemaValidation(db: mongoDB.Db) {
       }
     });
 }
+
+export async function resetDatabaseForTests() {
+  if (!collections.meals) {
+    throw new Error("Database not initialized");
+  }
+  await collections.meals.deleteMany({});
+}
