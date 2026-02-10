@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 .env
+
+robot/results/
+log.html
+report.html
+output.xml
