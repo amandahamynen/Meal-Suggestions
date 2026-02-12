@@ -1,4 +1,4 @@
-.MealSuggestion {
+.App {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,23 +8,33 @@
   background-color: #282c34;
 }
 
-.MealSuggestion__Header {
+.Header {
   height: 50px;
-  padding: 0;
+  padding: 6px 6px;
   margin: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .Header_Link {
-  padding: 10px 25px;
   text-decoration: none;
+  padding: 8px 12px;
   color: #dbe3e5;
 }
 
-.MealSuggestion__Content {
+.Header_Link:hover {
+  color: #a78bfa;
+}
+
+.Header_Link--active {
+  color: #dbe3e5;
+  font-weight: 600;
+  border-bottom: 2px solid #a78bfa;
+}
+
+.Content {
   height: calc(100% - 174px);
   padding: 0;
   margin: 0;
@@ -60,4 +70,49 @@
 
 .MealSuggestion__Button:hover {
   background-color: #6b57ad;
+}
+
+.MealGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 128px;
+}
+
+.MealCard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.MealCard:hover {
+  transform: translateY(-4px);
+}
+
+.MealCard__Title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.MealCard:nth-child(3n + 1) {
+  background-color: #8068d1;
+}
+
+.MealCard:nth-child(3n + 2) {
+  background-color: #db5461;
+}
+
+.MealCard:nth-child(3n + 3) {
+  background-color: #70c1b3;
 }
