@@ -1,8 +1,8 @@
 import { Meal } from "../types/meal";
-import { GET_MEALS_URL } from "../constants/api.constants";
+import { MEALS_URL } from "../constants/api.constants";
 
 const getMeals = async () => {
-  const response = await fetch(GET_MEALS_URL);
+  const response = await fetch(MEALS_URL);
   if (!response.ok) {
     throw new Error("Failed to fetch meals");
   }
@@ -11,7 +11,7 @@ const getMeals = async () => {
 };
 
 const addMeal = async (meal: Meal) => {
-  const response = await fetch(GET_MEALS_URL, {
+  const response = await fetch(MEALS_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const addMeal = async (meal: Meal) => {
 };
 
 const deleteMeal = async (meal: Meal) => {
-  const response = await fetch(`${GET_MEALS_URL}/${meal._id}`, {
+  const response = await fetch(`${MEALS_URL}/${meal._id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
