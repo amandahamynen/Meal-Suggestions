@@ -10,6 +10,20 @@ const getMeals = async () => {
   return data;
 };
 
+const addMeal = async (meal: Meal) => {
+  const response = await fetch(GET_MEALS_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(meal),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to add meal");
+  }
+};
+
 export default {
   getMeals,
+  addMeal,
 };

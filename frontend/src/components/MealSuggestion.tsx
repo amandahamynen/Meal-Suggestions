@@ -29,7 +29,7 @@ function MealSuggestion() {
       : (meals[index]?.name ?? "");
 
   return (
-    <>
+    <div className="MealSuggestion">
       <h1 className="MealSuggestion__Title" data-testid="meal-suggestion-title">
         {hasMeals ? "I should make..." : "No meals available"}
       </h1>
@@ -44,7 +44,7 @@ function MealSuggestion() {
           Give a suggestion
         </button>
       )}
-    </>
+    </div>
   );
 }
 

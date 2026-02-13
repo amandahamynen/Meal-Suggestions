@@ -1,11 +1,9 @@
 .App {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: #282c34;
+  width: 100vw;
 }
 
 .Header {
@@ -35,25 +33,33 @@
 }
 
 .Content {
-  height: calc(100% - 174px);
-  padding: 0;
-  margin: 0;
+  flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: 100px;
+}
+
+.MealSuggestion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
 }
 
 .MealSuggestion__Title {
   font-size: 96px;
-  margin-bottom: 20px;
   text-align: center;
   color: #dbe3e5;
 }
 
 .MealSuggestion__Result {
   font-size: 32px;
-  margin-bottom: 40px;
   text-align: center;
   color: #dbe3e5;
 }
@@ -72,13 +78,23 @@
   background-color: #6b57ad;
 }
 
+.MealsPage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
 .MealGrid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  padding: 128px;
+  padding: 12px 128px;
 }
 
 .MealCard {
@@ -115,4 +131,55 @@
 
 .MealCard:nth-child(3n + 3) {
   background-color: #70c1b3;
+}
+
+.MealAdd {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.MealAdd__Input {
+  padding: 12px 16px;
+  min-width: 420px;
+  margin: 0px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  outline: none;
+  color: #282c34;
+  background-color: #dbe3e5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.MealAdd__Input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25);
+}
+
+.MealAdd__Button {
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  background-color: #a78bfa;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.MealAdd__Button:disabled {
+  background-color: #a78bfa;
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.MealAdd__Button:not(:disabled):active {
+  transform: translateY(1px);
 }
