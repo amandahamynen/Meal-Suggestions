@@ -94,8 +94,8 @@ describe("POST /meals", () => {
       .post("/meals")
       .send({ name: "Havaijin pata" });
 
-    expect(res.status).toBe(201);
-    expect(res.text).toContain("507f1f77bcf86cd799439022");
+    expect(res.status).toBe(200);
+    expect(res.text).toContain("Havaijin pata");
   });
 });
 
