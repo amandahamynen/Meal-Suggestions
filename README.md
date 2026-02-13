@@ -42,7 +42,7 @@ After installing ```robotframework-browser```, initialize the Browser library
 rfbrowser init
 ```
 
-Start testing containers:
+Start test containers:
 ```bash
 docker compose -f docker-compose.test.yml up
 ```
