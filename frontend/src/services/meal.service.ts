@@ -21,9 +21,24 @@ const addMeal = async (meal: Meal) => {
   if (!response.ok) {
     throw new Error("Failed to add meal");
   }
+  const data = await response.json();
+  return data;
+};
+
+const deleteMeal = async (meal: Meal) => {
+  const response = await fetch(`${GET_MEALS_URL}/${meal._id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Failed to delete meal");
+  }
 };
 
 export default {
   getMeals,
   addMeal,
+  deleteMeal,
 };

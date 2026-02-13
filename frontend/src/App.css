@@ -98,6 +98,7 @@
 }
 
 .MealCard {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -105,6 +106,7 @@
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   white-space: nowrap;
+  overflow: hidden;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -114,11 +116,29 @@
   transform: translateY(-4px);
 }
 
-.MealCard__Title {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
+.MealCard__Delete {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.MealCard:hover .MealCard__Delete {
+  opacity: 1;
+}
+
+.MealCard__Delete:hover {
+  background: #b92736;
+  color: #dbe3e5;
 }
 
 .MealCard:nth-child(3n + 1) {

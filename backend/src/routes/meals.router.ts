@@ -46,7 +46,7 @@ export function createMealsRouter(mealsCollection?: Collection<Meal>): Router {
     const newmeal = req.body;
     const result = await mealsCollection.insertOne(newmeal);
     if (result) {
-      res.status(201).send(`Created a new meal with id ${result.insertedId}`);
+      res.status(200).send(newmeal);
     }
   });
 

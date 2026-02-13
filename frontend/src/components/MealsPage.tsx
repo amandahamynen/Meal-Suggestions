@@ -15,9 +15,15 @@ function MealsPage() {
   const addMeal = async (event: React.FormEvent) => {
     event.preventDefault();
     if (newMeal.name.trim() === "") return;
-    await mealService.addMeal(newMeal);
-    setMeals([...meals, newMeal]);
+    const createdMeal = await mealService.addMeal(newMeal);
+    setMeals((prevMeals) => [...prevMeals, createdMeal]);
     setNewMeal({ name: "" });
+  };
+
+  const handleDelete = (meal: Meal) => {
+    if (!window.confirm(`Delete "${meal.name}"?`)) return;
+    setMeals((prevMeals) => prevMeals.filter((m) => m.name !== meal.name));
+    mealService.deleteMeal(meal);
   };
 
   return (
@@ -43,7 +49,13 @@ function MealsPage() {
       <div className="MealGrid">
         {meals.map((meal) => (
           <div className="MealCard" key={meal.name}>
-            <h3 className="MealCard__Title">{meal.name}</h3>
+            <span className="MealCard__Title">{meal.name}</span>
+            <button
+              className="MealCard__Delete"
+              onClick={() => handleDelete(meal)}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
