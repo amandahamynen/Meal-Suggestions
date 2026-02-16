@@ -40,7 +40,11 @@ function MealSuggestion() {
         {mealText}
       </p>
       {hasMeals && (
-        <button className="MealSuggestion__Button" onClick={handleClick}>
+        <button
+          className="MealSuggestion__Button"
+          data-testid="suggest-meal-button"
+          onClick={handleClick}
+        >
           Give a suggestion
         </button>
       )}

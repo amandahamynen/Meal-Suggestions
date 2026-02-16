@@ -36,23 +36,28 @@ function MealsPage() {
             value={newMeal.name}
             onChange={(e) => setNewMeal({ name: e.target.value })}
             placeholder="Add a meal..."
+            data-testid="meal-add-input"
           />
           <button
             type="submit"
             className="MealAdd__Button"
             disabled={!newMeal.name.trim()}
+            data-testid="meal-add-button"
           >
             Add
           </button>
         </form>
       </div>
-      <div className="MealGrid">
+      <div className="MealGrid" data-testid="meal-grid">
         {meals.map((meal) => (
-          <div className="MealCard" key={meal.name}>
-            <span className="MealCard__Title">{meal.name}</span>
+          <div className="MealCard" key={meal.name} data-testid="meal-card">
+            <span className="MealCard__Title" data-testid="meal-card-title">
+              {meal.name}
+            </span>
             <button
               className="MealCard__Delete"
               onClick={() => handleDelete(meal)}
+              data-testid="meal-delete-button"
             >
               Delete
             </button>
