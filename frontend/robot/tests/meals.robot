@@ -55,7 +55,6 @@ Deletes meal and it no longer shows on meals page
     Fill Text    css=[data-testid="meal-add-input"]    Lohikeitto
     Click    css=[data-testid="meal-add-button"]
     Wait For Elements State    text=Lohikeitto    visible
-    ${card}=    Get Element    css=[data-testid="meal-card"] >> text=Lohikeitto
     Handle Future Dialogs    accept
     ${card}=    Get Element    xpath=//div[@data-testid="meal-card" and .//span[text()="Lohikeitto"]]
     Click    ${card} >> css=[data-testid="meal-delete-button"]
