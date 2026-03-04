@@ -9,6 +9,7 @@ services:
       MONGO_INITDB_DATABASE: example
     volumes:
       - mongo-data-dev:/data/db
+    command: mongod --quiet --logpath /dev/null
 
   backend:
     image: backend-dev
