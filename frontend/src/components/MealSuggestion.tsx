@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Meal } from "../types/meal";
 import mealService from "../services/meal.service";
 import shuffle from "../utils/shuffle";
+import AnimatedContent from "./reactbits/AnimatedContent";
 
 function MealSuggestion() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -30,9 +31,25 @@ function MealSuggestion() {
 
   return (
     <div className="MealSuggestion">
-      <h1 className="MealSuggestion__Title" data-testid="meal-suggestion-title">
-        {hasMeals ? "I should make..." : "No meals available"}
-      </h1>
+      <AnimatedContent
+        distance={1000}
+        direction="horizontal"
+        reverse={false}
+        duration={2}
+        ease="power3.out"
+        initialOpacity={0}
+        animateOpacity
+        scale={1}
+        threshold={0.1}
+        delay={0}
+      >
+        <h1
+          className="MealSuggestion__Title"
+          data-testid="meal-suggestion-title"
+        >
+          <div>{hasMeals ? "I should make..." : "No meals available"}</div>
+        </h1>
+      </AnimatedContent>
       <p
         className="MealSuggestion__Result"
         data-testid="meal-suggestion-result"
