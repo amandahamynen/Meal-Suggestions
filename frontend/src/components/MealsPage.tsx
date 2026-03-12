@@ -22,7 +22,7 @@ function MealsPage() {
 
   const handleDelete = (meal: Meal) => {
     if (!window.confirm(`Delete "${meal.name}"?`)) return;
-    setMeals((prevMeals) => prevMeals.filter((m) => m.name !== meal.name));
+    setMeals((prevMeals) => prevMeals.filter((m) => m._id !== meal._id));
     mealService.deleteMeal(meal);
   };
 
