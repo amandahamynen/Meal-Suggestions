@@ -32,8 +32,8 @@ function MealSuggestion() {
   return (
     <div className="MealSuggestion">
       <AnimatedContent
-        distance={1000}
-        direction="horizontal"
+        distance={200}
+        direction="vertical"
         reverse={false}
         duration={2}
         ease="power3.out"
@@ -50,20 +50,40 @@ function MealSuggestion() {
           <div>{hasMeals ? "I should make..." : "No meals available"}</div>
         </h1>
       </AnimatedContent>
-      <p
-        className="MealSuggestion__Result"
-        data-testid="meal-suggestion-result"
+      <AnimatedContent
+        distance={40}
+        direction="vertical"
+        duration={0.6}
+        ease="power3.out"
+        initialOpacity={0}
+        animateOpacity
+        delay={1}
       >
-        {mealText}
-      </p>
-      {hasMeals && (
-        <button
-          className="MealSuggestion__Button"
-          data-testid="suggest-meal-button"
-          onClick={handleClick}
+        <p
+          className="MealSuggestion__Result"
+          data-testid="meal-suggestion-result"
         >
-          Give a suggestion
-        </button>
+          {mealText}
+        </p>
+      </AnimatedContent>
+      {hasMeals && (
+        <AnimatedContent
+          distance={40}
+          direction="vertical"
+          duration={0.6}
+          ease="power3.out"
+          initialOpacity={0}
+          animateOpacity
+          delay={1}
+        >
+          <button
+            className="MealSuggestion__Button"
+            onClick={handleClick}
+            data-testid="suggest-meal-button"
+          >
+            Get a suggestion
+          </button>
+        </AnimatedContent>
       )}
     </div>
   );
