@@ -43,7 +43,7 @@ describe("MealSuggestion", () => {
     expect(screen.getByText("Press the button")).toBeInTheDocument();
 
     expect(
-      screen.getByRole("button", { name: /give a suggestion/i }),
+      screen.getByRole("button", { name: /get a suggestion/i }),
     ).toBeInTheDocument();
   });
 
