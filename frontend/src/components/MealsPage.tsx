@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Meal } from "../types/meal";
 import mealService from "../services/meal.service";
+import AnimatedContent from "./reactbits/AnimatedContent";
 
 function MealsPage() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -27,44 +28,54 @@ function MealsPage() {
   };
 
   return (
-    <div className="MealsPage">
-      <div className="MealAdd">
-        <form onSubmit={addMeal}>
-          <input
-            className="MealAdd__Input"
-            type="text"
-            value={newMeal.name}
-            onChange={(e) => setNewMeal({ name: e.target.value })}
-            placeholder="Add a meal..."
-            data-testid="meal-add-input"
-          />
-          <button
-            type="submit"
-            className="MealAdd__Button"
-            disabled={!newMeal.name.trim()}
-            data-testid="meal-add-button"
-          >
-            Add
-          </button>
-        </form>
-      </div>
-      <div className="MealGrid" data-testid="meal-grid">
-        {meals.map((meal) => (
-          <div className="MealCard" key={meal.name} data-testid="meal-card">
-            <span className="MealCard__Title" data-testid="meal-card-title">
-              {meal.name}
-            </span>
+    <AnimatedContent
+      distance={40}
+      direction="vertical"
+      duration={0.6}
+      ease="power3.out"
+      initialOpacity={0}
+      animateOpacity
+      delay={0}
+    >
+      <div className="MealsPage">
+        <div className="MealAdd">
+          <form onSubmit={addMeal}>
+            <input
+              className="MealAdd__Input"
+              type="text"
+              value={newMeal.name}
+              onChange={(e) => setNewMeal({ name: e.target.value })}
+              placeholder="Add a meal..."
+              data-testid="meal-add-input"
+            />
             <button
-              className="MealCard__Delete"
-              onClick={() => handleDelete(meal)}
-              data-testid="meal-delete-button"
+              type="submit"
+              className="MealAdd__Button"
+              disabled={!newMeal.name.trim()}
+              data-testid="meal-add-button"
             >
-              Delete
+              Add
             </button>
-          </div>
-        ))}
+          </form>
+        </div>
+        <div className="MealGrid" data-testid="meal-grid">
+          {meals.map((meal) => (
+            <div className="MealCard" key={meal.name} data-testid="meal-card">
+              <span className="MealCard__Title" data-testid="meal-card-title">
+                {meal.name}
+              </span>
+              <button
+                className="MealCard__Delete"
+                onClick={() => handleDelete(meal)}
+                data-testid="meal-delete-button"
+              >
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </AnimatedContent>
   );
 }
 
