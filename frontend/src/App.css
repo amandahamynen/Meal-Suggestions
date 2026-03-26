@@ -205,6 +205,6 @@
 
 .MealCard:hover .MealCard__Delete {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255);
   backdrop-filter: blur(2px);
 }
