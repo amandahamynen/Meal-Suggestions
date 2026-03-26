@@ -39,23 +39,23 @@ Shows correct meal when clicking button
 Shows correct meals on meals page
     New Page    ${URL_FRONTEND}/meals
     Wait For Elements State   css=[data-testid="meal-grid"]    visible
-    Get Text    css=[data-testid="meal-card-title"]    ==    Pizza
+    Get Text    css=[data-testid="meal-card-title"]    ==    PIZZA
 
 Adds meal and shows it in meals-page
     New Page    ${URL_FRONTEND}/meals
     Wait For Elements State    css=[data-testid="meal-grid"]    visible
     Fill Text    css=[data-testid="meal-add-input"]    Hernekeitto
     Click    css=[data-testid="meal-add-button"]
-    Wait For Elements State    text=Hernekeitto    visible
-    Get Text    text=Hernekeitto    ==    Hernekeitto
+    Wait For Elements State    text=HERNEKEITTO    visible
+    Get Text    text=HERNEKEITTO    ==    HERNEKEITTO
 
 Deletes meal and it no longer shows on meals page
     New Page    ${URL_FRONTEND}/meals
     Wait For Elements State    css=[data-testid="meal-grid"]    visible
     Fill Text    css=[data-testid="meal-add-input"]    Lohikeitto
     Click    css=[data-testid="meal-add-button"]
-    Wait For Elements State    text=Lohikeitto    visible
+    Wait For Elements State    text=LOHIKEITTO    visible
     Handle Future Dialogs    accept
     ${card}=    Get Element    xpath=//div[@data-testid="meal-card" and .//span[text()="Lohikeitto"]]
     Click    ${card} >> css=[data-testid="meal-delete-button"]
-    Wait For Elements State    text=Lohikeitto    hidden
+    Wait For Elements State    text=LOHIKEITTO    hidden
